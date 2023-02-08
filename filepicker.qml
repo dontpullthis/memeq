@@ -1,7 +1,8 @@
 import QtQuick 2.0
+import QtQuick.Dialogs 1.3
 import QtQuick.Controls 1.4
-
 import QtQuick.Layouts 1.15
+
 
 Rectangle {
     Layout.preferredWidth: parent.width
@@ -29,14 +30,10 @@ Rectangle {
           text: "Import from local filesystem"
         }
         RowLayout {
-            TextField {
-                placeholderText: qsTr("C:\\Users\\Me\\Images\\123.jpg")
-                Layout.fillWidth: true
-            }
-
             Button {
                 text: "Browse..."
                 Layout.fillWidth: true
+                onClicked: openDialog.open()
             }
 
         }
@@ -46,17 +43,27 @@ Rectangle {
         }
         RowLayout {
             TextField {
+                id: textUrl
                 placeholderText: qsTr("https://example.com/path/to/image.jpg")
+                text: ""
                 Layout.fillWidth: true
             }
 
             Button {
                 text: "Import"
                 Layout.fillWidth: true
+                onClicked: app_state.onImportFromUrlClicked(textUrl.text)
             }
 
         }
     }
 
-
+    FileDialog {
+        id: openDialog
+        nameFilters: ["Image Files (*.jpg *.jpeg *.png)"];
+        selectMultiple: false
+        onAccepted: {
+            app_state.loadImageFromPath(fileUrls[0])
+        }
+    }
 }

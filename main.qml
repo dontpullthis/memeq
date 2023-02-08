@@ -5,7 +5,7 @@ import QtQuick.Layouts 1.15
 Window {
     visible: true
     visibility: "Maximized"
-    title: qsTr("App")
+    title: qsTr("memeq")
     minimumWidth: 1280
     minimumHeight: 720
 
@@ -28,7 +28,7 @@ Window {
                     Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                     Layout.preferredHeight: 500
                     Layout.preferredWidth: 500
-                    source: "undefined" == typeof(app_state.image) ? "filepicker.qml" : "canvas.qml"
+                    source: app_state.isImageLoaded ? "canvas.qml" : "filepicker.qml"
                 }
             }
 

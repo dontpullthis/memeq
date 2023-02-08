@@ -13,10 +13,13 @@ Canvas {
         ctx.lineTo(150,50)
         ctx.stroke()
 
+
         ctx.fillStyle = "white";
         ctx.font = "bold 17px Impact";
         ctx.fillText("Qt Quick", 40, 70);
         ctx.strokeStyle = "black"
         ctx.strokeText("Qt Quick", 40, 70);
+
+        ctx.drawImage(app_state.image, 100, 100, 100, 100)
     }
 }
