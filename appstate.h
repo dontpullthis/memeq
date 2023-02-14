@@ -1,7 +1,9 @@
 #ifndef APPSTATE_H
 #define APPSTATE_H
 
+#include <QClipboard>
 #include <QCoreApplication>
+#include <QGuiApplication>
 #include <QImage>
 #include <QNetworkReply>
 #include <QObject>
@@ -15,6 +17,7 @@ public:
 
     Q_INVOKABLE void loadImageFromPath(QString path);
     Q_INVOKABLE void onImportFromUrlClicked(QString url);
+    Q_INVOKABLE void onPastedFromClipboard();
 
     Q_PROPERTY(QImage image READ getImage WRITE setImage NOTIFY onImageChanged)
     Q_PROPERTY(bool isImageLoaded READ getIsImageLoaded WRITE setIsImageLoaded NOTIFY onIsImageLoadedChanged)

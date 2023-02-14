@@ -4,7 +4,6 @@ import QtQuick.Layouts 1.15
 
 Window {
     visible: true
-    visibility: "Maximized"
     title: qsTr("memeq")
     minimumWidth: 1280
     minimumHeight: 720

@@ -18,6 +18,13 @@ Rectangle {
             }
         }
 
+        Keys.onReleased: (event) => {
+            if (!(event.key === Qt.Key_V && event.modifier === Qt.CtrlModifier)) {
+                return
+            }
+            app_state.onPastedFromClipboard()
+        }
+
         ColumnLayout {
             Text{
               text: "Please import a base image. You can:"

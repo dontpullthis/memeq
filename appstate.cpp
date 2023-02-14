@@ -30,6 +30,12 @@ void AppState::onImportFromUrlClicked(QString url)
     this->setImage(QImage(content));
 }
 
+void AppState::onPastedFromClipboard()
+{
+    QClipboard *clipboard = QGuiApplication::clipboard();
+    this->setImage(clipboard->image());
+}
+
 QImage AppState::getImage()
 {
     return QImage();
