@@ -6,7 +6,6 @@
 #include <QNetworkReply>
 #include <QObject>
 
-
 class AppState : public QObject
 {
     Q_OBJECT
